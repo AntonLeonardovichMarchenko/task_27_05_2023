@@ -1,0 +1,42 @@
+from divizor_master import *
+
+def prime_test(lst_key):
+    for n in lst_key:
+        if is_prime(n) == True:
+            print (f'{n} is prime')
+
+def lst_divisor_test(n):
+    lst_ret = lst_divisor_alpha(n)
+    for elem in lst_ret:
+        print(elem)
+
+def max_prime_divisor_test(n):
+    mpd = 0
+    lst_ret = lst_divisor_x(n, lstType=1)
+    for elem in lst_ret:
+        if is_prime(elem) == True:
+            mpd = max_prime_divisor((mpd, elem))
+
+    print(f'max_prime_divisor is {mpd}')
+    # !!!!!!!!!! #
+    return mpd
+
+def main():
+    lst = list(range(0, 100))
+    prime_test(lst)
+    print('===============================')
+
+    lst_divisor_test(125)
+    print('===============================')
+
+   
+    # ret = max_prime_divisor_test(1667)
+    ret = max_prime_divisor_test(5110) # возвращаемое значение !!!
+    # ret = max_prime_divisor((25, 17))
+    print (f'{ret}')
+    print('===============================')
+
+
+
+if __name__ == '__main__':
+    main()
